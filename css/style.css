@@ -1,0 +1,12 @@
+body {
+  margin:30px;
+}
+
+.input {
+  margin-left: 20px;
+}
+
+.list span {
+  display: inline-block;
+  width: 150px;
+}

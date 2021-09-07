@@ -2,45 +2,44 @@
 <html lang='ja'>
   <head>
     <meta charset='utf-8' />
+    <link rel='stylesheet' href='./css/style.css' />
     <title>Todoリスト</title>
   </head>
   <body>
     <h1>Todo管理アプリ</h1>
     <div id='app'>
-      <article>
-        <section v-if="isEdit">
-          <input
-            type='text'
-            v-model='newTask'
-          />
-          <button
-            v-if='isEdit'
-            class='add-button'
-            @click='updateTask()'
-          >Update</button>
-        </section>
-        <section v-else>
-          <input
-            type='text'
-            v-model='newTask'
-          />
-          <button
-            class='add-button'
-            @click='addTask()'
-          >Add</button>
-        </section>
-      </article>
-        <section>
-          <div>
-            <ul>
-              <li v-for='(task, key) in tasks'>
-                <span>{{ task }}</span>
-                <button @click='editTask(key)'>Edit</button>
-                <button @click='removeTask(key)'>Remove</button>
-              </li>
-            </ul>
-          </div>
-        </section>
+      <section v-if="isEdit" class='input'>
+        <input
+          type='text'
+          v-model='newTask'
+        />
+        <button
+          v-if='isEdit'
+          class='add-button'
+          @click='updateTask()'
+        >更新</button>
+      </section>
+      <section v-else class='input'>
+        <input
+          type='text'
+          v-model='newTask'
+        />
+        <button
+          class='add-button'
+          @click='addTask()'
+        >追加</button>
+      </section>
+      <section>
+        <div>
+          <ul class='list'>
+            <li v-for='(task, key) in tasks'>
+              <span>{{ task }}</span>
+              <button @click='editTask(key)'>編集</button>
+              <button @click='removeTask(key)'>削除</button>
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="./script/script.js"></script>
