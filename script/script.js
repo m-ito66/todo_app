@@ -33,7 +33,6 @@ const app = new Vue({
       this.saveTasks()
     },
     saveTasks() {
-      console.log(this.tasks)
       const parsed = JSON.stringify(this.tasks)
       localStorage.setItem('tasks', parsed)
     },
@@ -47,7 +46,7 @@ const app = new Vue({
     }
   },
   computed: {
-    isEdit() {
+    editable() {
       return this.editIndex > -1
     }
   }

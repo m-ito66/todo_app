@@ -8,13 +8,13 @@
   <body>
     <h1>Todo管理アプリ</h1>
     <div id='app'>
-      <section v-if="isEdit" class='input'>
+      <section v-if="editable" class='input'>
         <input
           type='text'
           v-model='newTask'
         />
         <button
-          v-if='isEdit'
+          v-if='editable'
           class='add-button'
           @click='updateTask()'
         >更新</button>
